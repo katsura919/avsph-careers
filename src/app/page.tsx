@@ -7,8 +7,14 @@ import HowItWorks from "@/components/custom/landing/HowItWorks";
 import Testimonials from "@/components/custom/landing/Testimonials";
 import CompanyCulture from "@/components/custom/landing/CompanyCulture";
 import CTA from "@/components/custom/landing/CTA";
+import { Award, Briefcase, Users } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
+
+
   return (
     <div className="overflow-hidden">
       <Hero />

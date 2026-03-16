@@ -1,131 +1,133 @@
 "use client";
-import Image from "next/image";
+import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { Phone } from "lucide-react";
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/components/ui/resizable-navbar";
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Careers", href: "/careers" },
-  { name: "Requirements", href: "/requirements" },
-  { name: "About Us", href: "/about-us" },
-  { name: "FAQs", href: "/faqs" },
-  { name: "Blog", href: "/blog" },
-  { name: "For Clients", href: "/for-clients" },
-];
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
 
-const Header = () => {
-  const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+  const navLinks = [
+    { link: "/", name: "Home" },
+    { link: "/about", name: "About" },
+    { link: "/services", name: "Requirements" },
+    { link: "/blog", name: "Blogs" },
+    { link: "/resources", name: "Resources" },
+  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#024466]/95 backdrop-blur-md shadow-lg py-2"
-          : "bg-[#024466] py-4"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="shrink-0">
-          <Image
-            src="/avs-logo-tagline.png"
-            alt="Advance Virtual Staff PH"
-            width={110}
-            height={40}
-            className="object-contain cursor-pointer"
-          />
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? "bg-white text-[#024466]"
-                    : "text-white/90 hover:text-white hover:bg-white/10"
-                }`}
+    <div className="fixed top-0 left-0 right-0 z-50 w-full">
+      <Navbar className="top-0">
+        <NavBody >
+          {/* Logo Section */}
+          <Link href="/" className="flex items-center gap-2 relative z-50 mr-8">
+            <Image
+              src="/assets/logo.jpeg"
+              alt="Advanced Virtual Staff Logo"
+              width={40}
+              height={40}
+              className="rounded-lg"
+            />
+            <div className="flex flex-col">
+              <span
+                className="text-lg font-bold leading-tight"
+                style={{ color: "var(--primary)" }}
               >
-                {item.name}
-              </Link>
-            );
-          })}
-          <Link
-            href="/apply-here"
-            className="ml-3 px-6 py-2.5 bg-[#FF6B35] text-white text-sm font-semibold rounded-lg hover:bg-[#e85a28] transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25"
-          >
-            Apply Now
+                ADVANCED
+              </span>
+              <span
+                className="text-sm font-medium leading-tight"
+                style={{ color: "var(--secondary)" }}
+              >
+                VIRTUAL STAFF
+              </span>
+            </div>
           </Link>
-        </nav>
 
-        {/* Mobile menu toggle */}
-        <button
-          className="lg:hidden text-white p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+          {/* Desktop Navigation */}
+          <NavItems items={navLinks} className="text-[var(--foreground)]" />
 
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-[#024466] border-t border-white/10 overflow-hidden"
-          >
-            <nav className="flex flex-col px-6 py-4 gap-1">
-              {navLinks.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                      isActive
-                        ? "bg-white text-[#024466]"
-                        : "text-white/90 hover:bg-white/10"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-4 relative z-50 ml-auto">
+            <Link
+              href="/booking"
+              className="px-6 py-2 rounded-full font-semibold text-white transition-all duration-300 shadow-md hover:translate-y-[-2px] hover:shadow-lg"
+              style={{
+                background:
+                  "linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%)",
+              }}
+            >
+              Apply Now
+            </Link>
+          </div>
+        </NavBody>
+
+        {/* Mobile Navigation */}
+        <MobileNav visible={true} className="lg:hidden">
+          <MobileNavHeader>
+            <Link href="/" className="flex items-center gap-2">
+              <Image
+                src="/assets/logo.jpeg"
+                alt="Advanced Virtual Staff Logo"
+                width={32}
+                height={32}
+                className="rounded-md"
+              />
+              <div className="flex flex-col">
+                <span
+                  className="text-base font-bold leading-tight"
+                  style={{ color: "var(--primary)" }}
+                >
+                  ADVANCED
+                </span>
+                <span className="text-xs font-medium leading-tight color-[var(--secondary)]">
+                  VIRTUAL STAFF
+                </span>
+              </div>
+            </Link>
+            <MobileNavToggle
+              isOpen={isOpen}
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          </MobileNavHeader>
+
+          <MobileNavMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <div className="flex flex-col gap-4 w-full">
+              {navLinks.map((item, idx) => (
+                <Link
+                  key={idx}
+                  href={item.link}
+                  className="text-lg font-medium py-2 border-b border-slate-100"
+                  style={{ color: "var(--foreground)" }}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
               <Link
-                href="/apply-here"
-                className="mt-2 px-4 py-3 bg-[#FF6B35] text-white text-sm font-semibold rounded-lg text-center hover:bg-[#e85a28]"
+                href="/booking"
+                className="w-full text-center px-6 py-3 rounded-xl font-bold text-white mt-2"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%)",
+                }}
+                onClick={() => setIsOpen(false)}
               >
                 Apply Now
               </Link>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+            </div>
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
+    </div>
   );
-};
-
-export default Header;
+}

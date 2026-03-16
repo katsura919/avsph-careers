@@ -1,7 +1,7 @@
 import { ArrowRight, Rocket } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import WaveDivider from "@/components/custom/shared/WaveDivider";
 const Hero = () => {
   return (

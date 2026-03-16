@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { BookOpen, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import WaveDivider from "@/components/custom/shared/WaveDivider";

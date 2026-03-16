@@ -1,5 +1,5 @@
 import { CheckCircle2, Send } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import WaveDivider from "@/components/custom/shared/WaveDivider";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";

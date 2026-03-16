@@ -15,7 +15,7 @@ import {
   CheckCircle2,
   Rocket,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import AnimatedSection from "@/components/custom/shared/AnimatedSection";
 import WaveDivider from "@/components/custom/shared/WaveDivider";
 

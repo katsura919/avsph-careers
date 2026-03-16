@@ -1,131 +1,177 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import Image from "next/image";
 import WaveDivider from "@/components/custom/shared/WaveDivider";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket } from "lucide-react";
-
-// Hero Section with animated background and call-to-action buttons */
+import {
+  Star,
+  Zap,
+  Users,
+  Building2,
+  BarChart3,
+  Search,
+  SlidersHorizontal,
+} from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 bg-linear-to-br from-[#024466] via-[#035a82] to-[#0891b2] overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1/4 -right-1/4 w-200 h-150 rounded-full border border-amber-400/30"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-1/4 -left-1/4 w-150 h-150 rounded-full border border-amber-400/30"
-        />
-        <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-[#FF6B35] rounded-full animate-pulse" />
-        <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-pulse delay-1000" />
-        <div className="absolute top-1/2 right-1/3 w-4 h-4 bg-yellow-400/30 rounded-full animate-pulse delay-500" />
-      </div>
+    <section className="relative pt-28 pb-0 overflow-hidden bg-white">
+      {/* Dot grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(10, 92, 135, 0.35) 1.5px, transparent 1.5px)",
+          backgroundSize: "32px 32px",
+          opacity: 0.35,
+        }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
-            <Rocket size={16} className="text-[#FF6B35]" />
-            <span className="text-white/90 text-sm font-medium">
-              #1 VA Staffing Agency in the Philippines
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Centered headline content */}
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          {/* Rating badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-full mb-6 shadow-sm"
+          >
+            <Star
+              size={14}
+              className="text-[var(--primary-light)] fill-[var(--primary-light)]"
+            />
+            <span className="text-gray-600 text-sm font-medium">
+              Advanced Virtual Staff Careers
             </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Build Your Dream{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FF6B35] to-yellow-400">
-              VA Career
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-bold text-[var(--foreground)] leading-tight mb-5"
+          >
+            Hire Top Filipino
+            <span className="text-[var(--primary)]">
+              {" "}
+              Virtual Assistants
             </span>{" "}
-            With Us
-          </h1>
-          <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Join Advance Virtual Staff PH and unlock world-class remote
-            opportunities. We empower Filipino professionals to thrive in the
-            global digital workforce.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/apply-here">
-              <Button
-                size="lg"
-                className="bg-[#FF6B35] hover:bg-[#e85a28] text-white h-13 px-8 text-base font-semibold rounded-xl shadow-lg shadow-orange-500/25"
-              >
-                Apply as a VA
-                <ArrowRight size={18} className="ml-2" />
-              </Button>
-            </Link>
-            <Link href="/careers">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/30 bg-cyan-500 text-white hover:bg-white/50 h-13 px-8 text-base font-semibold rounded-xl"
-              >
-                Explore VA Careers
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
+            With Advanced Virtual Staff
+          </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="hidden lg:block relative mt-10"
-        >
-          {/* Hero Illustration - Abstract/Decorative Card Cluster */}
-          <div className="relative w-full max-w-md mx-auto">
-            <div className="absolute inset-0 bg-linear-to-br from-[#FF6B35]/20 to-cyan-400/20 rounded-3xl blur-3xl" />
-            <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  {
-                    icon: "💻",
-                    label: "Remote Work",
-                    sub: "Work from anywhere",
-                  },
-                  {
-                    icon: "📈",
-                    label: "Career Growth",
-                    sub: "Level up skills",
-                  },
-                  {
-                    icon: "🌍",
-                    label: "Global Clients",
-                    sub: "US, UK, AU & more",
-                  },
-                  {
-                    icon: "💰",
-                    label: "Great Pay",
-                    sub: "Competitive rates",
-                  },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 + i * 0.15 }}
-                    className="bg-white/10 rounded-2xl p-4 text-center hover:bg-white/20 transition-colors duration-300"
-                  >
-                    <div className="text-3xl mb-2">{item.icon}</div>
-                    <p className="text-white font-semibold text-sm">
-                      {item.label}
-                    </p>
-                    <p className="text-blue-200 text-xs mt-1">{item.sub}</p>
-                  </motion.div>
-                ))}
-              </div>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-[var(--muted)] text-base md:text-lg leading-relaxed mb-8"
+          >
+            We connect businesses in the US, UK, Canada, Australia, and New
+            Zealand with highly skilled Filipino remote professionals, fast,
+            reliable, and ready to work.
+          </motion.p>
+        </div>
+
+        {/* Image section with floating stat cards */}
+        <div className="relative flex justify-center items-start md:items-end min-h-[320px] sm:min-h-[400px] md:min-h-[600px] lg:min-h-[700px]">
+          {/* Main hero image */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+            className="relative z-10 w-full px-2 sm:px-4 md:px-0 md:w-[94%] -mt-6 sm:-mt-8 md:-mt-10 lg:-mt-12 max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl"
+          >
+            <Image
+              src="/assets/hero-image.png"
+              alt="A diverse team of professionals representing virtual assistant talent"
+              width={1339}
+              height={768}
+              priority
+              className="relative left-1/2 -translate-x-1/2 w-[168%] sm:w-[136%] md:w-full max-w-none h-auto object-contain"
+            />
+          </motion.div>
+
+          {/* Floating stat card — bottom-left */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="absolute bottom-32 left-4 lg:left-8 z-20 hidden md:flex items-center gap-3 bg-white rounded-2xl shadow-md border border-gray-100 px-4 py-3"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[var(--primary-light)]/15 flex items-center justify-center shrink-0">
+              <Zap size={18} className="text-[var(--primary)]" />
             </div>
-          </div>
-        </motion.div>
-      </div>
+            <div>
+              <p className="text-[var(--foreground)] font-bold text-sm">
+                2x Faster
+              </p>
+              <p className="text-[var(--muted)] text-xs mt-0.5">
+                VA Placement Process
+              </p>
+            </div>
+          </motion.div>
 
-      <WaveDivider color="white" />
+          {/* Floating stat card — mid-left */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="absolute top-[30%] left-2 lg:left-6 z-20 hidden lg:flex items-center gap-3 bg-white rounded-2xl shadow-md border border-gray-100 px-4 py-3"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center shrink-0">
+              <Users size={18} className="text-[var(--primary-dark)]" />
+            </div>
+            <div>
+              <p className="text-[var(--foreground)] font-bold text-sm">500+</p>
+              <p className="text-[var(--muted)] text-xs mt-0.5">
+                Active VA Roles Listed
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Floating stat card — top-right */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="absolute top-2 right-4 lg:right-10 z-20 hidden md:flex items-center gap-3 bg-white rounded-2xl shadow-md border border-gray-100 px-4 py-3"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[var(--secondary-light)]/15 flex items-center justify-center shrink-0">
+              <Building2 size={18} className="text-[var(--secondary)]" />
+            </div>
+            <div>
+              <p className="text-[var(--foreground)] font-bold text-sm">
+                1,000+
+              </p>
+              <p className="text-[var(--muted)] text-xs mt-0.5 max-w-[130px] leading-snug">
+                Global Client Companies Use Our Platform
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Floating stat card — bottom-right */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="absolute bottom-20 right-2 lg:right-6 z-20 hidden md:flex items-center gap-3 bg-white rounded-2xl shadow-md border border-gray-100 px-4 py-3"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[var(--secondary)]/10 flex items-center justify-center shrink-0">
+              <BarChart3 size={18} className="text-[var(--secondary-light)]" />
+            </div>
+            <div>
+              <p className="text-[var(--foreground)] font-bold text-sm">
+                250,000+
+              </p>
+              <p className="text-[var(--muted)] text-xs mt-0.5">
+                Monthly Site Visits
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
