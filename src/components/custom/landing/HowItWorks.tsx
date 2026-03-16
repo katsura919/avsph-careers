@@ -1,4 +1,3 @@
-import React from "react";
 import AnimatedSection from "@/components/custom/shared/AnimatedSection";
 
 const HowItWorks = () => {
@@ -6,16 +5,28 @@ const HowItWorks = () => {
     /* How It Works Section */
   }
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-20 bg-white overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(10, 92, 135, 0.2) 1.5px, transparent 1.5px)",
+          backgroundSize: "32px 32px",
+          opacity: 0.35,
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-[#FF6B35] uppercase tracking-wider mb-3">
+          <span className="inline-flex items-center text-sm font-semibold text-[var(--primary)] bg-white border border-[var(--border)] rounded-full px-4 py-2 uppercase tracking-wider mb-4 shadow-sm">
             How It Works
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#024466] mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] mb-4">
             Your Path to Becoming a VA
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+
+          <p className="text-[var(--muted)] max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             Getting started is easy. Follow these simple steps and begin your
             new career journey today.
           </p>
@@ -45,19 +56,23 @@ const HowItWorks = () => {
             },
           ].map((item, i) => (
             <AnimatedSection key={i} delay={i * 0.15}>
-              <div className="relative text-center group">
-                <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-[#024466] to-[#0891b2] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/20">
-                  <span className="text-white font-bold text-lg">
+              <div className="relative text-center group h-full rounded-2xl bg-white border border-[var(--border)] p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div className="w-16 h-16 rounded-2xl bg-[var(--primary-light)]/15 border border-[var(--primary)]/15 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-[var(--primary)] font-bold text-lg">
                     {item.step}
                   </span>
                 </div>
                 {i < 3 && (
-                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] border-t-2 border-dashed border-[#024466]/20" />
+                  <div className="hidden md:block absolute top-[4.5rem] left-[68%] w-[68%] border-t-2 border-dashed border-[var(--primary)]/20" />
                 )}
-                <h3 className="text-lg font-bold text-[#024466] mb-2">
+
+                <h3 className="text-lg font-bold text-[var(--foreground)] mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+
+                <p className="text-[var(--muted)] text-sm leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </AnimatedSection>
           ))}
