@@ -1,43 +1,44 @@
 import AnimatedSection from "@/components/custom/shared/AnimatedSection";
-import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 import Link from "next/link";
-import { motion } from "motion/react";
 
 const CTA = () => {
   return (
-    <section className="py-20 bg-linear-to-br from-[#024466] to-[#0891b2] relative overflow-hidden">
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#FF6B35]/10 rounded-full blur-3xl"
-        />
-      </div>
+    <section className="relative py-24 bg-white overflow-hidden">
+      {/* Subtle dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(10, 92, 135, 0.12) 1.5px, transparent 1.5px)",
+          backgroundSize: "40px 40px",
+          opacity: 0.2,
+        }}
+      />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Meet All The Requirements?
+          <span className="text-sm font-semibold uppercase tracking-widest mb-4 block text-[var(--primary)]">
+            READY TO APPLY?
+          </span>
+          <h2 className="text-[var(--foreground)] mb-4">
+            Meet All The{" "}
+            <span className="text-[var(--accent)]">Requirements?</span>
           </h2>
-          <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-[var(--muted)] text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
             Great! Take the next step and submit your application. Our team
-            will review your profile and reach out if you're a good fit.
+            will review your profile and reach out if you&apos;re a good fit.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/apply-here">
-              <Button className="bg-[#FF6B35] hover:bg-[#e55a28] text-white px-8 h-12 text-base font-semibold rounded-xl">
-                Apply Now
-                <Send className="ml-2" size={18} />
-              </Button>
+            <Link href="/apply-here" className="btn-primary inline-flex items-center gap-2">
+              Apply Now
+              <Send size={18} />
             </Link>
-            <Link href="/faqs">
-              <Button
-                variant="outline"
-                className="bg-white/10 border-white/30 text-white hover:bg-white hover:text-[#024466] backdrop-blur-sm px-8 h-12 text-base font-semibold rounded-xl"
-              >
-                View FAQs
-              </Button>
+            <Link
+              href="/faqs"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border-2 border-[var(--primary)]/30 text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-all duration-300"
+            >
+              View FAQs
             </Link>
           </div>
         </AnimatedSection>

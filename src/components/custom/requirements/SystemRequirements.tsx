@@ -1,18 +1,21 @@
 import AnimatedSection from "@/components/custom/shared/AnimatedSection";
-import { Card, CardContent } from "@/components/ui/card";
 import { systemRequirements } from "@/data/requirements/requirements.data";
 import { CheckCircle2 } from "lucide-react";
 
 const SystemRequirements = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="relative py-24 bg-[var(--background-alt)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#024466] mb-4">
-              System & Technical Requirements
+          <div className="text-center mb-16">
+            <span className="text-sm font-semibold uppercase tracking-widest mb-4 block text-[var(--primary)]">
+              TECHNICAL SET-UP
+            </span>
+            <h2 className="text-[var(--foreground)] mb-4">
+              System &{" "}
+              <span className="text-[var(--accent)]">Technical Requirements</span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-[var(--muted)] max-w-2xl mx-auto text-lg">
               To ensure smooth operations and excellent service delivery, all
               VAs must have reliable equipment and internet.
             </p>
@@ -21,28 +24,31 @@ const SystemRequirements = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {systemRequirements.map((item, i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-gray-100">
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 rounded-xl bg-linear-to-br from-[#024466] to-[#0891b2] flex items-center justify-center mb-4">
-                    <item.icon className="text-white" size={28} />
+            <AnimatedSection key={i} delay={i * 0.08}>
+              <div className="group h-full bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                {/* Orange accent strip on hover */}
+                <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative">
+                  <div className="w-14 h-14 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--primary)] transition-colors duration-300">
+                    <item.icon
+                      className="text-[var(--primary)] group-hover:text-white transition-colors duration-300"
+                      size={26}
+                    />
                   </div>
-                  <h3 className="text-xl font-bold text-[#024466] mb-4">
-                    {item.title}
-                  </h3>
+                  <h3 className="text-[var(--foreground)] mb-4">{item.title}</h3>
                   <ul className="space-y-2">
                     {item.requirements.map((req, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle2
-                          size={16}
-                          className="text-[#FF6B35] mt-0.5 shrink-0"
+                          size={15}
+                          className="text-[var(--accent)] mt-0.5 shrink-0"
                         />
-                        <span className="text-sm text-gray-600">{req}</span>
+                        <span className="text-sm text-[var(--muted)]">{req}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </AnimatedSection>
           ))}
         </div>
