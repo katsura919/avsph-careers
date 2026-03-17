@@ -59,7 +59,7 @@ export default function Header() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4 relative z-50 ml-auto">
             <Link
-              href="/booking"
+              href="/apply-now"
               className="px-6 py-2 rounded-full font-semibold text-white transition-all duration-300 shadow-md hover:translate-y-[-2px] hover:shadow-lg"
               style={{
                 background:
