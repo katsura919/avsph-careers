@@ -5,34 +5,47 @@ import WaveDivider from "@/components/custom/shared/WaveDivider";
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 bg-linear-to-br from-[#024466] via-[#035a82] to-[#0891b2] overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
+    <section className="relative pt-32 bg-[var(--primary)] overflow-hidden">
+      {/* Background pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px)",
+          backgroundSize: "32px 32px",
+          opacity: 0.4,
+        }}
+      />
+
+      {/* Glow decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-96 h-96 bg-[#FF6B35]/10 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)]/10 rounded-full blur-[120px]"
         />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-[80px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center pb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
-            <Globe size={16} className="text-[#FF6B35]" />
-            <span className="text-white/90 text-sm font-medium">
-              Always On The Go
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <Globe size={16} className="text-[var(--accent)]" />
+            <span className="text-white/90 text-sm font-semibold uppercase tracking-widest">
+              Our Story
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-white mb-6">
             About{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FF6B35] to-yellow-400">
+            <span className="text-[var(--accent)]">
               Advance Virtual Staff PH
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-white/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Empowering Filipino Virtual Assistants to build meaningful careers
             and achieve their full potential in the global remote workforce.
           </p>

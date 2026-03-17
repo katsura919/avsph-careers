@@ -26,7 +26,7 @@ export default function ScrollToTopButton() {
       aria-label="Scroll to top"
       size="icon"
       className={cn(
-        "fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full shadow-lg bg-[#024466] text-white hover:bg-[#FF6B35] transition-all duration-300",
+        "fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full shadow-lg bg-accent text-white hover:bg-[#FF6B35] transition-all duration-300",
         visible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4 pointer-events-none",
