@@ -1,24 +1,29 @@
 import AnimatedSection from "@/components/custom/shared/AnimatedSection";
-import { Card, CardContent } from "@/components/ui/card";
 import { growthPaths } from "@/data/careers/careers.data";
 
-// Career Growth Path Section
 const CareerGrowthPath = () => {
   return (
-    <section className="py-20 bg-linear-to-br from-[#024466] to-[#035a82] relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-[#FF6B35]/10 rounded-full blur-3xl" />
-      </div>
-
+    <section className="relative py-24 bg-white overflow-hidden">
+      {/* Subtle dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(10, 92, 135, 0.12) 1.5px, transparent 1.5px)",
+          backgroundSize: "40px 40px",
+          opacity: 0.2,
+        }}
+      />
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-[#FF6B35] uppercase tracking-wider mb-3">
-            Career Growth
+          <span className="text-sm font-semibold uppercase tracking-widest mb-4 block text-[var(--primary)]">
+            CAREER GROWTH
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Your Career Growth at AVS
+          <h2 className="text-[var(--foreground)] mb-4">
+            Your Career Growth{" "}
+            <span className="text-[var(--accent)]">at AVS</span>
           </h2>
-          <p className="text-blue-200 max-w-2xl mx-auto text-lg">
+          <p className="text-[var(--muted)] max-w-2xl mx-auto text-lg">
             We invest in your growth with clear career progression paths. Start
             anywhere — grow everywhere.
           </p>
@@ -27,19 +32,18 @@ const CareerGrowthPath = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {growthPaths.map((path, i) => (
             <AnimatedSection key={i} delay={i * 0.12}>
-              <Card className="bg-white/10 border-white/10 backdrop-blur-sm hover:bg-white/15 transition-all duration-300 h-full">
-                <CardContent className="p-6">
+              <div className="group h-full bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative">
                   <span
                     className={`inline-block text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-linear-to-r ${path.color} text-white mb-4`}
                   >
                     {path.level}
                   </span>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {path.title}
-                  </h3>
-                  <p className="text-blue-200 text-sm">{path.desc}</p>
-                </CardContent>
-              </Card>
+                  <h3 className="text-[var(--foreground)] mb-2">{path.title}</h3>
+                  <p className="text-[var(--muted)] text-sm">{path.desc}</p>
+                </div>
+              </div>
             </AnimatedSection>
           ))}
         </div>

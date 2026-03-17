@@ -1,18 +1,35 @@
 import AnimatedSection from "@/components/custom/shared/AnimatedSection";
 import { whyAVS } from "@/data/careers/careers.data";
-// Why Work With AVS Section
+
 const WhyWorkWithAVS = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-24 bg-[var(--primary)] overflow-hidden">
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px)",
+          backgroundSize: "32px 32px",
+          opacity: 0.3,
+        }}
+      />
+      {/* Glows */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-[80px]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-[#FF6B35] uppercase tracking-wider mb-3">
-            Why AVS?
+          <span className="text-sm font-semibold uppercase tracking-widest mb-4 block text-[var(--accent)]">
+            WHY AVS?
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#024466] mb-4">
-            Why Work With Advance Virtual Staff PH?
+          <h2 className="text-white mb-4">
+            Why Work With{" "}
+            <span className="text-[var(--accent)]">Advance Virtual Staff PH?</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-white/70 max-w-2xl mx-auto text-lg">
             We&apos;re not just a staffing agency — we&apos;re your partner in
             building a successful remote career.
           </p>
@@ -20,16 +37,17 @@ const WhyWorkWithAVS = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {whyAVS.map((item, i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
-              <div className="flex gap-4 p-6 rounded-2xl bg-[#f5f9fb] hover:bg-[#eef4f8] transition-colors duration-300">
-                <div className="w-12 h-12 rounded-xl bg-[#024466] flex items-center justify-center shrink-0">
-                  <item.icon size={22} className="text-white" />
+            <AnimatedSection key={i} delay={i * 0.08}>
+              <div className="group flex gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[var(--accent)]/30 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-[var(--accent)]/20 flex items-center justify-center shrink-0 group-hover:bg-[var(--accent)] transition-colors duration-300">
+                  <item.icon
+                    size={22}
+                    className="text-[var(--accent)] group-hover:text-white transition-colors duration-300"
+                  />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#024466] mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                  <h3 className="text-white mb-1">{item.title}</h3>
+                  <p className="text-white/60 text-sm">{item.desc}</p>
                 </div>
               </div>
             </AnimatedSection>

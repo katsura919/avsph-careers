@@ -1,42 +1,47 @@
-import React from "react";
 import AnimatedSection from "@/components/custom/shared/AnimatedSection";
-import { Button } from "@/components/ui/button";
-import { Briefcase, Star } from "lucide-react";
+import { Briefcase, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-// CTA Section
 const CTA = () => {
   return (
-    <section className="py-20 bg-linear-to-r from-[#FF6B35] to-[#ff8c5a] relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
+    <section className="relative py-24 bg-[var(--primary)] overflow-hidden">
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px)",
+          backgroundSize: "32px 32px",
+          opacity: 0.3,
+        }}
+      />
+      {/* Glows */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)]/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/5 rounded-full blur-[80px]" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <AnimatedSection>
-          <div className="flex justify-center mb-6">
-            <Star
-              size={48}
-              className="text-white/80 fill-white/80 animate-pulse"
-            />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Start Your VA Career?
+          <span className="text-sm font-semibold uppercase tracking-widest mb-4 block text-[var(--accent)]">
+            TAKE THE NEXT STEP
+          </span>
+          <h2 className="text-white mb-4">
+            Ready to Start Your{" "}
+            <span className="text-[var(--accent)]">VA Career?</span>
           </h2>
-          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
             Don&apos;t wait for the opportunity — create it. Join Advance
             Virtual Staff PH today and take the first step towards your dream
             career.
           </p>
-          <Link href="/apply-here">
-            <Button
-              size="lg"
-              className="bg-white text-[#FF6B35] hover:bg-white/90 h-14 px-10 text-lg font-bold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              <Briefcase size={20} className="mr-2" />
-              Apply Now — It&apos;s Free
-            </Button>
+          <Link
+            href="/apply-here"
+            className="btn-primary inline-flex items-center gap-2 text-lg px-8 py-4"
+          >
+            <Briefcase size={20} />
+            Apply Now — It&apos;s Free
+            <ArrowRight size={18} />
           </Link>
         </AnimatedSection>
       </div>
