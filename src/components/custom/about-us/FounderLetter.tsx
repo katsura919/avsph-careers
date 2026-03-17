@@ -22,7 +22,7 @@ const FounderLetter = () => {
             <span className="text-sm font-semibold uppercase tracking-widest mb-4 block text-[var(--primary)]">
               A MESSAGE FOR YOU
             </span>
-            <h2 className="text-[var(--foreground)]">
+            <h2 className="text-primary">
               A Letter From{" "}
               <span className="text-[var(--accent)]">Our Founder</span>
             </h2>
@@ -51,14 +51,14 @@ const FounderLetter = () => {
               <h3 className="text-2xl font-bold mb-6 text-white">
                 {founderLetter.salutation}
               </h3>
-              <div className="space-y-5 text-white/70 leading-relaxed text-base md:text-lg">
+              <div className="space-y-5 text-white leading-relaxed text-base md:text-lg">
                 {founderLetter.paragraphs.map((paragraph, i) => (
-                  <p key={i}>{paragraph}</p>
+                  <p className="text-white" key={i}>{paragraph}</p>
                 ))}
               </div>
               <div className="mt-10 flex items-center justify-between">
                 <div>
-                  <p className="text-white/60 text-sm font-medium">
+                  <p className="text-white text-sm font-medium">
                     {founderLetter.signature.closing}
                   </p>
                   <p className="text-[var(--accent)] text-2xl font-bold mt-1">

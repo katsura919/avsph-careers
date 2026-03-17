@@ -94,14 +94,14 @@ export const founderLetter = {
   salutation: "Dear aspiring virtual staff,",
   paragraphs: [
     "I am thrilled to connect with you today and share the passion for virtual staffing and recruitment. As the proud owner of a staffing agency, I understand the unique challenges and opportunities that come with this dynamic industry.",
-    "At AVS, we pride ourselves on placing individuals in roles that align with their unique skills, passions, and aspirations. We believe that Virtual Assistants deserve better — better training, better support, and better opportunities to shine.",
+    "At AVS, we pride ourselves on placing individuals in roles that align with their unique skills, passions, and aspirations. We believe that Virtual Assistants deserve better, better training, better support, and better opportunities to shine.",
     "We're not just filling positions; we're creating pathways to success. Through our hiring program, I am ensuring families get the support they need by ensuring employers provide sustainable compensation packages to each candidate placed in opportunities.",
-    "Your opportunities are not just a commodity — you're an investment. Growth starts with you, and we want to invest in you throughout the duration of your career with us.",
+    "Your opportunities are not just a commodity, you're an investment. Growth starts with you, and we want to invest in you throughout the duration of your career with us.",
   ],
   signature: {
     closing: "Best regards,",
-    name: "Eri Yanson",
+    name: "Em Gee",
     title: "Founder & CEO",
-    initials: "EY",
+    initials: "EG",
   },
 };

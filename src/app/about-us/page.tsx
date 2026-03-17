@@ -17,7 +17,7 @@ export default function AboutUs() {
       <FounderLetter />
       <AVSCommunity />
       <CoreValues />
-      <CTA />
+      {/* <CTA /> */}
     </div>
   );
 }
