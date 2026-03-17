@@ -42,13 +42,13 @@ export default function Header() {
                 className="text-lg font-bold leading-tight"
                 style={{ color: "var(--primary)" }}
               >
-                ADVANCED
+                AVSPH
               </span>
               <span
                 className="text-sm font-medium leading-tight"
                 style={{ color: "var(--secondary)" }}
               >
-                VIRTUAL STAFF
+                CAREERS
               </span>
             </div>
           </Link>

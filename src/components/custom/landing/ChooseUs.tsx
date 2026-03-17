@@ -1,61 +1,114 @@
-import { benefits } from "@/data/landing/landing.data";
-import { Card, CardContent } from "@/components/ui/card";
-import AnimatedSection from "@/components/custom/shared/AnimatedSection";
+import { MessageSquare, Users, CheckCircle, ArrowRight } from "lucide-react";
 
-const ChooseUs = () => {
+export default function ChooseUs() {
+  const steps = [
+    {
+      number: "01",
+      title: "Submit Your Application",
+      description:
+        "Create your professional profile and showcase your skills. We're looking for the top Virtual Assistant talent in the Philippines.",
+      icon: <MessageSquare className="w-8 h-8 text-white" />,
+    },
+    {
+      number: "02",
+      title: "Get Screened & Matched",
+      description:
+        "Complete our rigorous assessment and interview process. We'll match you with a premium international client that fits your expertise.",
+      icon: <Users className="w-8 h-8 text-white" />,
+    },
+    {
+      number: "03",
+      title: "Start Your Global Career",
+      description:
+        "Join an elite team and begin working remotely with full support. Enjoy stable income, growth opportunities, and a global network.",
+      icon: <CheckCircle className="w-8 h-8 text-white" />,
+    },
+  ];
+
   return (
-    <section className="relative py-20 overflow-hidden bg-[var(--primary)]">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(255, 255, 255, 0.18) 1.5px, transparent 1.5px)",
-          backgroundSize: "32px 32px",
-          opacity: 0.55,
-        }}
-      />
+    <section
+      id="how-it-works"
+      className="section relative overflow-hidden"
+      style={{ background: "var(--primary)" }}
+    >
+      {/* Background Decorations */}
+      <div className="absolute inset-0 opacity-10">
+        <div
+          className="absolute top-0 left-1/4 w-96 h-96 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, var(--secondary) 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
+          }}
+        />
+      </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <AnimatedSection className="text-center mb-16">
-          <span className="inline-flex items-center text-sm font-semibold text-white bg-white/10 border border-white/20 rounded-full px-4 py-2 uppercase tracking-wider mb-4">
-            Why Choose Us
+      <div className="container relative z-10">
+        <div className="text-center mb-16">
+          <span
+            className="text-sm font-semibold uppercase tracking-wider mb-4 block"
+            style={{ color: "var(--background)" }}
+          >
+            HIRING PROCESS
           </span>
-
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Benefits of Being an AVS Virtual Assistant
+          <h2 className="text-white mb-4">
+            Getting Started is{" "}
+            <span style={{ color: "var(--accent)" }}>Simple</span>
           </h2>
-
-          <p className="text-white/80 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            We don&apos;t just find you a job — we build your career.
-            Here&apos;s what makes AVS the best place for aspiring Virtual
-            Assistants.
+          <p
+            className="max-w-2xl mx-auto text-lg"
+            style={{ color: "rgba(255, 255, 255, 0.7)" }}
+          >
+            We&apos;ve streamlined the process to help you land your dream
+            remote role with top international companies as quickly as possible.
           </p>
-        </AnimatedSection>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {benefits.map((benefit, i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
-              <Card className="group h-full overflow-hidden rounded-2xl border border-white/40 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <CardContent className="p-7">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--primary-light)]/15 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                    <benefit.icon size={22} className="text-[var(--primary)]" />
+        <div className="grid md:grid-cols-3 gap-8">
+          {steps.map((step, index) => (
+            <div key={index} className="relative">
+              <div className="relative text-center flex flex-col items-center">
+                {/* Icon with Step Label */}
+                <div className="relative inline-block mb-8">
+                  {/* Icon Circle */}
+                  <div
+                    className="inline-flex items-center justify-center w-20 h-20 rounded-full"
+                    style={{
+                      background: "var(--secondary)",
+                      color: "var(--primary)",
+                    }}
+                  >
+                    {step.icon}
                   </div>
+                </div>
 
-                  <h3 className="text-lg font-bold text-[var(--foreground)] mb-2">
-                    {benefit.title}
-                  </h3>
-
-                  <p className="text-[var(--muted)] text-sm leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {step.title}
+                </h3>
+                <p style={{ color: "rgba(255, 255, 255, 0.7)" }}>
+                  {step.description}
+                </p>
+              </div>
+            </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href="/booking"
+            className="btn-primary inline-flex items-center gap-2"
+          >
+            Start Your Journey
+            <ArrowRight className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </section>
   );
-};
-
-export default ChooseUs;
+}

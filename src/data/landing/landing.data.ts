@@ -66,20 +66,20 @@ export const benefits = [
 export const testimonials = [
   {
     name: "Maria Santos",
-    role: "Executive Virtual Assistant",
-    text: "AVS changed my life. I went from a regular office job to earning more while spending time with my family. The support and training are incredible!",
-    rating: 5,
+    designation: "Executive Virtual Assistant",
+    quote: "AVS changed my life. I went from a regular office job to earning more while spending time with my family. The support and training are incredible!",
+    src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1000&auto=format&fit=crop",
   },
   {
     name: "John Reyes",
-    role: "Full Stack Developer",
-    text: "The team at AVS truly cares about their VAs. They matched me with an amazing client, and I've been growing professionally ever since.",
-    rating: 5,
+    designation: "Full Stack Developer",
+    quote: "The team at AVS truly cares about their VAs. They matched me with an amazing client, and I've been growing professionally ever since.",
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
   },
   {
     name: "Ana Cruz",
-    role: "Social Media Manager",
-    text: "I started with no experience in social media management. AVS provided the training I needed, and now I manage accounts for clients in the US and Australia.",
-    rating: 5,
+    designation: "Social Media Manager",
+    quote: "I started with no experience in social media management. AVS provided the training I needed, and now I manage accounts for clients in the US and Australia.",
+    src: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1000&auto=format&fit=crop",
   },
 ];

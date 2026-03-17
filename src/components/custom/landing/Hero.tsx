@@ -53,12 +53,12 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-bold text-[var(--foreground)] leading-tight mb-5"
           >
-            Hire Top Filipino
+            Launch Your
             <span className="text-[var(--primary)]">
               {" "}
-              Virtual Assistants
+              Global Career
             </span>{" "}
-            With Advanced Virtual Staff
+            as a Filipino Virtual Assistant
           </motion.h1>
 
           {/* Subtitle */}
@@ -68,9 +68,8 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[var(--muted)] text-base md:text-lg leading-relaxed mb-8"
           >
-            We connect businesses in the US, UK, Canada, Australia, and New
-            Zealand with highly skilled Filipino remote professionals, fast,
-            reliable, and ready to work.
+            Join elite international teams and work remotely for top
+            companies across the US, UK, Canada, and Australia.
           </motion.p>
         </div>
 
