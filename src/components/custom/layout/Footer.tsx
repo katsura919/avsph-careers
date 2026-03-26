@@ -66,12 +66,14 @@ export default function Footer() {
                   VIRTUAL STAFF
                 </span>
                 <span className="text-[10px] font-bold tracking-[0.2em] text-[var(--accent)] mt-0.5">
-                   CAREERS PORTAL
+                  CAREERS PORTAL
                 </span>
               </div>
             </Link>
             <p className="mb-6 max-w-sm text-white/60 leading-relaxed">
-              Join the top 1% of Filipino virtual assistants and launch your global career. We connect exceptional talent with premium international clients.
+              Join the top 1% of Filipino virtual assistants and launch your
+              global career. We connect exceptional talent with premium
+              international clients.
             </p>
             <div className="flex gap-4 mb-8">
               {socialLinks.map((social) => (
@@ -105,14 +107,16 @@ export default function Footer() {
                 <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
                   <Mail className="w-4 h-4 text-[var(--accent)]" />
                 </div>
-                admin@advancedvirtualstaff.com
+                hiring@advancedvirtualstaff.com
               </a>
             </div>
           </div>
 
           {/* Links Columns */}
           <div>
-            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">For Candidates</h4>
+            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">
+              For Candidates
+            </h4>
             <ul className="space-y-3">
               {footerLinks.candidates.map((link) => (
                 <li key={link.label}>
@@ -129,7 +133,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">Career Paths</h4>
+            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">
+              Career Paths
+            </h4>
             <ul className="space-y-3">
               {footerLinks.roles.map((link) => (
                 <li key={link.label}>
@@ -146,7 +152,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">VA Resources</h4>
+            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">
+              VA Resources
+            </h4>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
@@ -167,7 +175,9 @@ export default function Footer() {
       {/* Copyright Bar */}
       <div className="py-6 border-t border-white/5">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white">
-          <p className="text-white">© {currentYear} Advanced Virtual Staff. All rights reserved.</p>
+          <p className="text-white">
+            © {currentYear} Advanced Virtual Staff. All rights reserved.
+          </p>
           <div className="flex gap-8">
             <Link
               href="/privacy-policy"
@@ -175,7 +185,10 @@ export default function Footer() {
             >
               Privacy Policy
             </Link>
-            <Link href="/terms-of-service" className="hover:text-white transition-colors">
+            <Link
+              href="/terms-of-service"
+              className="hover:text-white transition-colors"
+            >
               Terms of Service
             </Link>
           </div>
